@@ -1,5 +1,7 @@
 #M-Pesa MoneyMap
+
 A Kenyan focused personal finance and expense tracking application built with python.
+
 #features
 -Add income
 -Add expenses
