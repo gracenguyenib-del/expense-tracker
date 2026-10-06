@@ -1,4 +1,4 @@
-``python
+
 print("================================")
 print("M-PESA MONEYMAP")
 print("================================")
@@ -48,7 +48,7 @@ def view_transactions():
 
     if income:
         for i in income:
-            print(f"Income: {i[1]} from {i[2]} on {i[3]}")
+            print(f"Income: {i[0]} from {i[1]} on {i[2]}")
     else:
         print("No income records found.")
 
@@ -56,7 +56,7 @@ def view_transactions():
 
     if expenses:
         for e in expenses:
-            print(f"Expense: {e[1]} for {e[2]} on {e[3]}")
+            print(f"Expense: {e[0]} for {e[1]} on {e[2]}")
     else:
         print("No expense records found.")
 
@@ -159,4 +159,4 @@ while True:
 
     else:
         print("Invalid option. Please try again.")
-``
+
