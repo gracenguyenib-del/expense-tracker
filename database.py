@@ -68,6 +68,8 @@ def get_income_from_db():
     return income
 
 
+
+
 def add_budget_to_db(amount, category):
     connection = get_connection()
     cursor = connection.cursor()
@@ -113,4 +115,38 @@ def get_balance_from_db():
 
     return total_income, total_expenses, balance
 
+def get_monthly_income_expenses_budget():
+    connection = get_connection()
+    cursor = connection.cursor()
 
+    
+    today = date.today()
+    current_month = today.month
+    current_year = today.year
+
+    
+    cursor.execute(
+        "SELECT SUM(amount) FROM income WHERE EXTRACT(MONTH FROM date) = %s AND EXTRACT(YEAR FROM date) = %s",
+        (current_month, current_year)
+    )
+    monthly_income = cursor.fetchone()[0] or 0
+
+    
+    cursor.execute(
+        "SELECT SUM(amount) FROM expenses WHERE EXTRACT(MONTH FROM date) = %s AND EXTRACT(YEAR FROM date) = %s",
+        (current_month, current_year)
+    )
+    monthly_expenses = cursor.fetchone()[0] or 0
+
+    
+    cursor.execute(
+        "SELECT SUM(amount) FROM budget WHERE EXTRACT(MONTH FROM date) = %s AND EXTRACT(YEAR FROM date) = %s",
+        (current_month, current_year)
+    )
+    monthly_budget = cursor.fetchone()[0] or 0
+
+    cursor.close()
+    connection.close()
+
+    return monthly_income, monthly_expenses, monthly_budget
+    
