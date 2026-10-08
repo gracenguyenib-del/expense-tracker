@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+psycopg2-binary
+psycopg2
+python-multipart
+pydantic[email]
+passlib[bcrypt]
+python-dotenv
