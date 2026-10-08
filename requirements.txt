@@ -9,3 +9,4 @@ passlib[bcrypt]
 python-dotenv
 pwdlib
 jwt
+pwdlib[argon2]
