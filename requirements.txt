@@ -8,3 +8,4 @@ pydantic[email]
 passlib[bcrypt]
 python-dotenv
 pwdlib
+jwt
